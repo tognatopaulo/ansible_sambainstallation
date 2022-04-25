@@ -6,7 +6,7 @@
   tasks:
   
     - name: Installing packages
-      ansible.builtin.package:
+      package:
         name:
           - samba
           - samba-common
@@ -14,7 +14,7 @@
         state: present
         
     - name: Create a directory if it does not exist
-      ansible.builtin.file:
+      file:
         path: /srv/tecmint/data
         state: directory
         mode: '0755'
@@ -22,7 +22,7 @@
         group: nobody
         
     - name: Allow SMB to modify files in /srv/tecmint/data
-      community.general.sefcontext:
+      sefcontext:
         target: '/srv/tecmint/data(/.*)?'
         setype: samba_share_t
         state: present
