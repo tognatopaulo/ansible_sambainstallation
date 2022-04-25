@@ -1,8 +1,13 @@
 ---
-- name: TESTE PING
+- name: INSTALLING SAMBA
   hosts: all
   become: true
 
   tasks:
-    - name:
-      ping:
+    - name: Installing packages
+      ansible.builtin.package:
+		    name:
+			    - samba
+			    - samba-common
+			    - samba-client
+		    state: present
