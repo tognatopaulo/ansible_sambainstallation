@@ -1,1 +1,8 @@
+---
+- name: TESTE PING
+  hosts: all
+  become: true
 
+  tasks:
+    - name:
+      ping:
