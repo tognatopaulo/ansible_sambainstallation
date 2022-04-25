@@ -6,8 +6,8 @@
   tasks:
     - name: Installing packages
       ansible.builtin.package:
-		    name:
-			    - samba
-			    - samba-common
-			    - samba-client
-		    state: present
+        name:
+          - samba
+          - samba-common
+          - samba-client
+        state: present
