@@ -26,3 +26,6 @@
         target: '/srv/tecmint/data(/.*)?'
         setype: samba_share_t
         state: present
+        
+    - name: Apply new SELinux file context to filesystem
+      command: restorecon -irv /srv/tecmint/data
