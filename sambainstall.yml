@@ -18,10 +18,3 @@
         mode: '0755'
         owner: nobody
         group: nobody
-    - name: Allow apache to modify files in /srv/tecmint/data
-      community.general.sefcontext:
-        target: '/srv/tecmint/data(/.*)?'
-        setype: samba_share_t
-        state: present
-    - name: Apply new SELinux file context to filesystem
-      ansible.builtin.command: restorecon -irv /srv/tecmint/data
